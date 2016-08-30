@@ -152,6 +152,8 @@ import(
     "fmt"
 ) 
 
+//This is a public function exposed from the package. A exported functions must start with an Uppercase letter.
+// the return type of this function is a string as shown by the definition 
 func HelloWorld()string{
     return "hello world" 
 }
@@ -177,6 +179,7 @@ import(
     "testing"
 )
 
+//All test functions accept an argument of a pointer to testing.T
 func Test_HelloWorld(t *testing.T){
     val := HelloWorld()
     if (val != "hello world"){
