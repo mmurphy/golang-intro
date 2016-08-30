@@ -9,3 +9,4 @@ notes and info about getting started with golang
  - Installing some common tools
  - Create your first program
  - Create the first test for your program
+ - Editors and IDEs
