@@ -169,8 +169,22 @@ func Test_HelloWorld(t *testing.T){
 
 ```
 
-Here we have imported the stdlib testing package and defined a test in the standard way that accepts a pointer to a type of t.Testing.
+Here we have imported the stdlib [testing package](https://golang.org/pkg/testing/) and defined a test in the standard way that accepts a pointer to a type of t.Testing.
 Then we call our HelloWorld function and check that the value returned matches what we expected.
+
+To run this test run the following command
+
+```
+go test 
+
+```
+
+To get more verbose output add -v 
+
+```
+go test -v
+
+```
 
 ## Editors and integration
 
