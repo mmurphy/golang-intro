@@ -70,7 +70,7 @@ ls
 
 2) ``` go install ``` (see below) this will do the same as go build except drop it into your $GOPATH/bin dir
 
-3) ``` go vet `` This will check your code for common coding errors
+3) ``` go vet ``` This will check your code for common coding errors
 
 4) ``` go test ``` (see below) This will run the test files in the given package
 
