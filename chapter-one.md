@@ -1,8 +1,8 @@
-## Installing golang for your environment
+## Installing Golang for your environment
 
-Download can be found here: [golang.org downloads](https://golang.org/dl/)
+Downloads can be found here: [golang.org downloads](https://golang.org/dl/)
 
-Installation instruction here [golang installation](https://golang.org/doc/install)
+Installation instruction are here [golang installation](https://golang.org/doc/install) I will outline the main ones below.
 
 - Mac OSX there is a package installer under the downloads
 - Linux there is a tar.gz under the downloads. 
@@ -28,12 +28,14 @@ Mine is currently set to /Users/kelly/work/go
 
 ```
 
+The $GOPATH env var works like the $PATH var where you can have multiple locations separated by a ``` : ```
+
 ## Setting up and verifying your worksapce
 
 Once we have the $GOPATH env var setup, we need to create a directory structure for our projects that golang understands. 
-Golang best practice is to have package / projects as resolvable paths. An example would be: ``` github.com/golang/lint/golint ``` 
+Golang best practice is to have packages / projects as resolvable paths. An example would be: ``` github.com/golang/lint/golint ``` 
 This is a package on github if you browe to ``` https://github.com/golang/lint ``` you can see the code there. The go get command expects a resovable path backed by one of the common CVS systems (git,mercurial etc)
-When you run the go get command, it will checkout the repo at $GOPATH/src/github.com/golang/lint/golint and you refer to it in your files as an import (more later)
+When you run the go get command, it will checkout the repo at $GOPATH/src/github.com/golang/lint/golint and you refer to it in your files as an import. The import path tells the go compiler where to find the source for your projects.
 ```
   import "github.com/golang/lint/golint"
 ```
@@ -51,6 +53,9 @@ So to be good gophers we will also follow this best practice. Before we finish l
  - golint  ``` go get github.com/golang/lint/golint ```  
  - goimports ``` go get  golang.org/x/tools/cmd/goimports ```
 
+golint looks for common code style. Things such as documenting Exported functions. 
+goimports formats your code correctly and also removes any unused imports. It will also try to resolve imports that haven't been added to the imports definition.
+
 What we just did and how go get works. The go get command takes the path to the package and expects a version controlled and accessible path. It then clones this source code into your
 $GOPATH/src directory ready for you to use in import paths as part of your projects. 
 
@@ -59,6 +64,14 @@ cd $GOPATH/src/github
 ls 
 ``` 
 
+## Some common go commands that you should know
+
+1) ``` go build ``` (see below) this will build and compile your code into a binary 
+2) ``` go install ``` (see below) this will do the same as go build except drop it into your $GOPATH/bin dir
+3) ``` go vet `` This will check your code for common coding errors
+4) ``` go test ``` (see below) This will run the test files in the given package
+5) ``` go get ``` Pulls a dependency into your $GOPATH 
+ 
 ## Create your first program
 Create the following directory
 ```
