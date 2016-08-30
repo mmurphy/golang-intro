@@ -220,8 +220,12 @@ godoc testing
 
 
 ## Editors and integration
+Most main editors have some support for Golang
 
-
+- Visual Studio Code Has a good golang plugin [download](https://code.visualstudio.com)
+- Intellij Also has a good golang plugin [download](https://www.jetbrains.com/idea/)
+- Sublime Text3 Takes a bit of setting up but works quite well [tutorial](https://www.wolfe.id.au/2015/03/05/using-sublime-text-for-go-development/) 
+- Atom plugin [download](https://atom.io/packages/go-plus)
 
 ## Optional Homework 
 
