@@ -186,6 +186,22 @@ go test -v
 
 ```
 
+## Viewing docs about stdlib packages or any package
+
+You can google the package and read the online docs at :
+
+```
+https://golang.org/pkg/
+```
+
+You can also use the godoc command any any package. For example run the following command to see the docs for the testing pkg
+
+```
+godoc testing
+
+```
+
+
 ## Editors and integration
 
 
