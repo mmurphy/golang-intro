@@ -16,19 +16,50 @@ Installation instruction are here [Go installation](https://golang.org/doc/insta
   Add /usr/local/go/bin to the PATH environment variable. You can do this by adding this line to your /etc/profile (for a system-wide installation) or $HOME/.profile:
 ```  
 
-## Understanding the $GOPATH env var
+## Understanding the GOPATH environment variable
 
-The $GOPATH env var tells the Go tools where your workspace is. I would normally set this in my bash profile as well.
-When you install packages and build binaries, the Go tools will default to the $GOPATH/src followed by a fully resolovable path in order to resolve depenencies. (more on this shortly)
+The GOPATH environment variable lists places to look for Go code. It defines
+your workspace. It is likely the only environment variable you'll need to set
+when developing Go code.
 
-Mine is currently set to /Users/kelly/work/go
+Official documentation:
+
+- [How to Write Go Code: The GOPATH environment variable](https://golang.org/doc/code.html#GOPATH)
+- [Command go: GOPATH environment variable](https://golang.org/cmd/go/#hdr-GOPATH_environment_variable)
+
+Normally the GOPATH is set in your shell profile (one of `~/.bashrc`,
+`~/.bash_profile`, etc).
+
+When you install packages and build binaries, the Go tool will look for source
+code in `$GOPATH/src/` followed by a package import path in order to resolve
+dependencies. More on this shortly.
+
+The GOPATH works like the PATH environment variable, where you can have multiple
+locations separated by a `:` (`;` on Windows).
+
+Some people prefer to use a single path workspace, like
+`GOPATH=/Users/kelly/work/go`. Others use multiple paths, like
+`GOPATH=/home/rodolfo/.go-vendor:/home/rodolfo/Dropbox/go:/home/rodolfo/openshift`.
+When using multiple paths, the Go tool will download and install new packages to
+the first path in the list, while preserving the same path when building
+existing source code.
+
+Make sure to have a line defining your GOPATH in your `~/.bashrc` or equivalent:
 
 ```
-  export $GOPATH=$HOME/work
-
+export $GOPATH=$HOME/go
 ```
 
-The $GOPATH env var works like the $PATH var where you can have multiple locations separated by a ``` : ```
+---
+**Pro tip**: include also a line to add GOPATH/bin to your PATH, so that you can
+easily run built and installed binaries:
+
+```
+# Include every ./bin directory from GOPATHs into PATH
+export PATH="$PATH:${GOPATH//://bin:}/bin"
+```
+---
+
 
 ## Setting up and verifying your worksapce
 

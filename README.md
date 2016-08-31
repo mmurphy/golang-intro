@@ -4,7 +4,7 @@ Notes and info about getting started with Go.
 
 ## [Chapter One Getting Set Up](./chapter-one.md)
  - Installing Go for your environment
- - Understanding the $GOPATH and $GOBIN env var
+ - Understanding the $GOPATH environment variable
  - Setting up and verifying your worksapce
  - Installing some common tools
  - Create your first program
