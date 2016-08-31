@@ -5,9 +5,9 @@ Downloads can be found here: [golang.org downloads](https://golang.org/dl/)
 Installation instruction are here [Go installation](https://golang.org/doc/install) I will outline the main ones below.
 
 - Mac OSX there is a package installer under the downloads
-- Linux there is a tar.gz under the downloads. 
+- Linux there is a tar.gz under the downloads.
 
-``` 
+```
   Download the archive and extract it into /usr/local, creating a Go tree in /usr/local/go. For example:
   tar -C /usr/local -xzf go1.7.linux-amd64.tar.gz
 ```
@@ -43,9 +43,9 @@ When you run the go get command, it will checkout the repo at $GOPATH/src/github
 So to be good Gophers we will also follow this best practice. Before we finish lets complete our workspace by creating the following dirs
 
 ```
-  mkdir -p $GOPATH/src  //where go get will store the source of packages. Our code will also live here under our own namespace. 
-  mkdir -p $GOPATH/bin // where executables are install when you run go install 
-  mkdir -p $GOPATH/pkg // where package objects are stored things like .a files 
+  mkdir -p $GOPATH/src // where go get will store the source of packages. Our code will also live here under our own namespace.
+  mkdir -p $GOPATH/bin // where executables are install when you run go install
+  mkdir -p $GOPATH/pkg // where package objects are stored things like .a files
 
 ```  
 
@@ -53,16 +53,16 @@ So to be good Gophers we will also follow this best practice. Before we finish l
  - golint  ``` go get github.com/golang/lint/golint ```  
  - goimports ``` go get  golang.org/x/tools/cmd/goimports ```
 
-golint looks for common code style. Things such as documenting Exported functions. 
+golint looks for common code style. Things such as documenting Exported functions.
 goimports formats your code correctly and also removes any unused imports. It will also try to resolve imports that haven't been added to the imports definition.
 
 What we just did and how go get works. The go get command takes the path to the package and expects a version controlled and accessible path. It then clones this source code into your
-$GOPATH/src directory ready for you to use in import paths as part of your projects. 
+$GOPATH/src directory ready for you to use in import paths as part of your projects.
 
 ```
-cd $GOPATH/src/github 
-ls 
-``` 
+cd $GOPATH/src/github
+ls
+```
 
 ## Some common Go commands that you should know
 
@@ -74,7 +74,7 @@ ls
 
 4) ``` go test ``` (see below) This will run the test files in the given package
 
-5) ``` go get ``` Pulls a dependency into your $GOPATH 
+5) ``` go get ``` Pulls a dependency into your $GOPATH
 
 ## Create your first program
 Create the following directory
@@ -83,13 +83,13 @@ Create the following directory
   cd $GOPATH/src/github.com/<your_user>/hello
   vi main.go
 ```
-Add the following to main.go 
+Add the following to main.go
 
 ```
 package main
 import(
     "fmt"
-) 
+)
 
 func main(){
     fmt.Println("hello world")
@@ -118,7 +118,7 @@ The go build command will compile the source into a binary and drop it in the cu
 This should output ``` hello world ```
 
 ```
-rm ./hello 
+rm ./hello
 
 go install .
 
@@ -134,7 +134,7 @@ go fmt .
 
 ```
 
-Open main.go and it will be correctly formatted again. 
+Open main.go and it will be correctly formatted again.
 
 
 
@@ -150,12 +150,12 @@ reopen main.go and change it to look like the following :
 package main
 import(
     "fmt"
-) 
+)
 
 //This is a public function exposed from the package. A exported functions must start with an Uppercase letter.
-// the return type of this function is a string as shown by the definition 
+// the return type of this function is a string as shown by the definition
 func HelloWorld()string{
-    return "hello world" 
+    return "hello world"
 }
 
 func main(){
@@ -167,13 +167,13 @@ func main(){
 open main_test.go
 
 ```
-  vi main_test.go 
+  vi main_test.go
 ```
 
-Add the following code 
+Add the following code
 
 ```
-pacakge main 
+pacakge main
 
 import(
     "testing"
@@ -195,11 +195,11 @@ Then we call our HelloWorld function and check that the value returned matches w
 To run this test run the following command
 
 ```
-go test 
+go test
 
 ```
 
-To get more verbose output add -v 
+To get more verbose output add -v
 
 ```
 go test -v
@@ -227,10 +227,10 @@ Most main editors have some support for Go
 
 - Visual Studio Code Has a good Go plugin [download](https://code.visualstudio.com)
 - Intellij Also has a good Go plugin [download](https://www.jetbrains.com/idea/)
-- Sublime Text3 Takes a bit of setting up but works quite well [tutorial](https://www.wolfe.id.au/2015/03/05/using-sublime-text-for-go-development/) 
+- Sublime Text3 Takes a bit of setting up but works quite well [tutorial](https://www.wolfe.id.au/2015/03/05/using-sublime-text-for-go-development/)
 - Atom plugin [download](https://atom.io/packages/go-plus)
 
-## Optional Homework 
+## Optional Homework
 
 If you wanted to learn more (I will be going through more next week), now that you have your
 environment setup, I would recommend looking at [A Tour of Go](https://tour.golang.org/welcome/1) that essentially start where we have left off.

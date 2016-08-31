@@ -2,7 +2,7 @@
 Notes and info about getting started with Go.
 
 
-## [Chapter One Getting Set Up](./chapter-one.md) 
+## [Chapter One Getting Set Up](./chapter-one.md)
  - Installing Go for your environment
  - Understanding the $GOPATH and $GOBIN env var
  - Setting up and verifying your worksapce
@@ -16,5 +16,5 @@ Notes and info about getting started with Go.
 - Functions and return values
 - Pointers
 - Types and Type assertion
-- Structs 
+- Structs
 - Create your first web server
