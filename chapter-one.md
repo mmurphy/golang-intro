@@ -98,24 +98,41 @@ export PATH="$PATH:${GOPATH//://bin:}/bin"
 ---
 
 
-## Setting up and verifying your worksapce
+## Setting up and verifying your workspace
 
-Once we have the $GOPATH env var setup, we need to create a directory structure for our projects that Go understands.
-Go's best practice is to have packages / projects as resolvable paths. An example would be: ``` github.com/golang/lint/golint ```
-This is a package on github if you browe to ``` https://github.com/golang/lint ``` you can see the code there. The go get command expects a resovable path backed by one of the common CVS systems (git,mercurial etc)
-When you run the go get command, it will checkout the repo at $GOPATH/src/github.com/golang/lint/golint and you refer to it in your files as an import. The import path tells the Go compiler where to find the source for your projects.
+Once we have the GOPATH setup, we need to create a directory structure for our
+projects that Go understands.
+
+Go's best practice is to have packages / projects as resolvable paths. An
+example would be: `github.com/golang/lint/golint`. This is a package on GitHub
+such that if you browse to https://github.com/golang/lint you can see the code
+there.
+
+The `go get` command expects a resolvable path backed by one of the common VCS
+systems (Git, Mercurial, etc). When you run the `go get` command, it will
+checkout the repository at `$GOPATH/src/github.com/golang/lint/golint` and you
+can then refer to it in an import statement. The import path tells the Go
+compiler where to find the source for a certain package.
+
+An `example.go` file could look like:
+
 ```
-  import "github.com/golang/lint/golint"
+package main
+
+import "github.com/golang/lint/golint"
+
+// ...
 ```
 
-So to be good Gophers we will also follow this best practice. Before we finish lets complete our workspace by creating the following dirs
+So to be good Gophers we will also follow this best practice. Before we finish
+let's complete our workspace by creating the following directories:
 
 ```
-  mkdir -p $GOPATH/src // where go get will store the source of packages. Our code will also live here under our own namespace.
-  mkdir -p $GOPATH/bin // where executables are install when you run go install
-  mkdir -p $GOPATH/pkg // where package objects are stored things like .a files
+mkdir -p $GOPATH/src  # Where go get will store the source of packages. Our code will also live here under our own namespace.
+mkdir -p $GOPATH/bin  # Where executables are installed when you run go install or go get.
+mkdir -p $GOPATH/pkg  # Where package objects are stored, e.g., .a files.
+```
 
-```  
 
 ## Installing some common tools
  - golint  ``` go get github.com/golang/lint/golint ```  
