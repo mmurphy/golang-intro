@@ -1,11 +1,11 @@
-# golang-intro
-notes and info about getting started with golang
+# Introduction to the Go Programming Language
+Notes and info about getting started with Go.
 
 
-## [Chapter One Getting Set Up](./chapter-one.md) 
- - Installing golang for your environment
- - Understanding the $GOPATH and $GOBIN env var
- - Setting up and verifying your worksapce
+## [Chapter One Getting Set Up](./chapter-one.md)
+ - Installing Go for your environment
+ - Understanding the $GOPATH environment variable
+ - Setting up and verifying your workspace
  - Installing some common tools
  - Create your first program
  - Create the first test for your program
@@ -16,5 +16,5 @@ notes and info about getting started with golang
 - Functions and return values
 - Pointers
 - Types and Type assertion
-- Structs 
+- Structs
 - Create your first web server
