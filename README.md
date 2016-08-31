@@ -1,9 +1,9 @@
-# golang-intro
-notes and info about getting started with golang
+# Introduction to the Go Programming Language
+Notes and info about getting started with Go.
 
 
 ## [Chapter One Getting Set Up](./chapter-one.md) 
- - Installing golang for your environment
+ - Installing Go for your environment
  - Understanding the $GOPATH and $GOBIN env var
  - Setting up and verifying your worksapce
  - Installing some common tools

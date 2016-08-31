@@ -1,8 +1,8 @@
-## Installing Golang for your environment
+## Installing Go for your environment
 
 Downloads can be found here: [golang.org downloads](https://golang.org/dl/)
 
-Installation instruction are here [golang installation](https://golang.org/doc/install) I will outline the main ones below.
+Installation instruction are here [Go installation](https://golang.org/doc/install) I will outline the main ones below.
 
 - Mac OSX there is a package installer under the downloads
 - Linux there is a tar.gz under the downloads. 
@@ -18,8 +18,8 @@ Installation instruction are here [golang installation](https://golang.org/doc/i
 
 ## Understanding the $GOPATH env var
 
-The $GOPATH env var tells the golang tools where your workspace is. I would normally set this in my bash profile as well. 
-When you install packages and build binaries, the go tools will default to the $GOPATH/src followed by a fully resolovable path in order to resolve depenencies. (more on this shortly) 
+The $GOPATH env var tells the Go tools where your workspace is. I would normally set this in my bash profile as well.
+When you install packages and build binaries, the Go tools will default to the $GOPATH/src followed by a fully resolovable path in order to resolve depenencies. (more on this shortly)
 
 Mine is currently set to /Users/kelly/work/go
 
@@ -32,10 +32,10 @@ The $GOPATH env var works like the $PATH var where you can have multiple locatio
 
 ## Setting up and verifying your worksapce
 
-Once we have the $GOPATH env var setup, we need to create a directory structure for our projects that golang understands. 
-Golang best practice is to have packages / projects as resolvable paths. An example would be: ``` github.com/golang/lint/golint ``` 
+Once we have the $GOPATH env var setup, we need to create a directory structure for our projects that Go understands.
+Go's best practice is to have packages / projects as resolvable paths. An example would be: ``` github.com/golang/lint/golint ```
 This is a package on github if you browe to ``` https://github.com/golang/lint ``` you can see the code there. The go get command expects a resovable path backed by one of the common CVS systems (git,mercurial etc)
-When you run the go get command, it will checkout the repo at $GOPATH/src/github.com/golang/lint/golint and you refer to it in your files as an import. The import path tells the go compiler where to find the source for your projects.
+When you run the go get command, it will checkout the repo at $GOPATH/src/github.com/golang/lint/golint and you refer to it in your files as an import. The import path tells the Go compiler where to find the source for your projects.
 ```
   import "github.com/golang/lint/golint"
 ```
@@ -64,7 +64,7 @@ cd $GOPATH/src/github
 ls 
 ``` 
 
-## Some common go commands that you should know
+## Some common Go commands that you should know
 
 1) ``` go build ``` (see below) this will build and compile your code into a binary
 
@@ -140,8 +140,8 @@ Open main.go and it will be correctly formatted again.
 
 ## Create the first test for your program
 
-The convention in golang is to put your tests alongside the code that it tests rather than in a different directory somewhere. This has the advantage of giving a very visible
-way of seeing what has tests and what doesn't. All test files in golang are named _test.go anything named that way will not be added to the final binary.
+The convention in Go is to put your tests alongside the code that it tests rather than in a different directory somewhere. This has the advantage of giving a very visible
+way of seeing what has tests and what doesn't. All test files in Go are named _test.go anything named that way will not be added to the final binary.
 
 
 reopen main.go and change it to look like the following :
@@ -223,14 +223,14 @@ godoc testing
 
 
 ## Editors and integration
-Most main editors have some support for Golang
+Most main editors have some support for Go
 
-- Visual Studio Code Has a good golang plugin [download](https://code.visualstudio.com)
-- Intellij Also has a good golang plugin [download](https://www.jetbrains.com/idea/)
+- Visual Studio Code Has a good Go plugin [download](https://code.visualstudio.com)
+- Intellij Also has a good Go plugin [download](https://www.jetbrains.com/idea/)
 - Sublime Text3 Takes a bit of setting up but works quite well [tutorial](https://www.wolfe.id.au/2015/03/05/using-sublime-text-for-go-development/) 
 - Atom plugin [download](https://atom.io/packages/go-plus)
 
 ## Optional Homework 
 
 If you wanted to learn more (I will be going through more next week), now that you have your
-environment setup, I would recommend looking at the [golang tour](https://tour.golang.org/welcome/1) that essentially start where we have left off.
+environment setup, I would recommend looking at [A Tour of Go](https://tour.golang.org/welcome/1) that essentially start where we have left off.
