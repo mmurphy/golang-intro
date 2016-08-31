@@ -1,20 +1,57 @@
 ## Installing Go for your environment
 
-Downloads can be found here: [golang.org downloads](https://golang.org/dl/)
+You might use your package manager to install Go or install manually from the
+official release binaries. Either way should be easy.
 
-Installation instruction are here [Go installation](https://golang.org/doc/install) I will outline the main ones below.
+Because the `go` tool is able to download code from remote repositories, it is
+often useful to have installed clients for the various supported version control
+systems. At the time of this writing, they are
+[documented](https://golang.org/cmd/go/#hdr-Remote_import_paths) as: Bazaar,
+Git, Mercurial and Subversion.
 
-- Mac OSX there is a package installer under the downloads
-- Linux there is a tar.gz under the downloads.
+They are not mandatory requirements, you might go a long way with just having
+`git` installed, and installing others later as required. In any case, to
+install all of them:
 
 ```
-  Download the archive and extract it into /usr/local, creating a Go tree in /usr/local/go. For example:
-  tar -C /usr/local -xzf go1.7.linux-amd64.tar.gz
+dnf install bzr git mercurial subversion      # Fedora
+yum install bzr git mercurial subversion      # RHEL / CentOS
+brew install bazaar git mercurial subversion  # macOS with Homebrew
 ```
 
+### Installation using a package manager
+
 ```
-  Add /usr/local/go/bin to the PATH environment variable. You can do this by adding this line to your /etc/profile (for a system-wide installation) or $HOME/.profile:
-```  
+dnf install golang  # Fedora
+yum install golang  # RHEL / CentOS
+brew install go     # macOS with Homebrew
+```
+
+### Installation from official binary releases
+
+1. Download an archive for the desired version and platform from
+https://golang.org/dl/.
+2. Follow the [installation
+instructions](https://golang.org/doc/install). The main steps are outlined
+below.
+
+For macOS, execute the package installer from the downloads page.
+
+For Linux, download a `.tar.gz` archive and extract it into `/usr/local`,
+creating a Go tree in `/usr/local/go`. For example:
+
+```
+tar -C /usr/local -xzf go1.7.linux-amd64.tar.gz
+```
+
+Finally, add `/usr/local/go/bin` to the PATH environment variable. You can do
+this by adding this line to your `/etc/profile` (for a system-wide installation)
+or `$HOME/.profile` (or `~/.bashrc`, `~/.bash_profile`, ...):
+
+```
+export PATH=$PATH:/usr/local/go/bin
+```
+
 
 ## Understanding the GOPATH environment variable
 
