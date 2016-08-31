@@ -40,7 +40,7 @@ When you run the go get command, it will checkout the repo at $GOPATH/src/github
   import "github.com/golang/lint/golint"
 ```
 
-So to be good gophers we will also follow this best practice. Before we finish lets complete our workspace by creating the following dirs
+So to be good Gophers we will also follow this best practice. Before we finish lets complete our workspace by creating the following dirs
 
 ```
   mkdir -p $GOPATH/src  //where go get will store the source of packages. Our code will also live here under our own namespace. 
