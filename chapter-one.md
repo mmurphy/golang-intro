@@ -84,7 +84,7 @@ existing source code.
 Make sure to have a line defining your GOPATH in your `~/.bashrc` or equivalent:
 
 ```
-export $GOPATH=$HOME/go
+export GOPATH=$HOME/go
 ```
 
 ---
