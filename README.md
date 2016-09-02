@@ -14,10 +14,12 @@ Notes and info about getting started with Go.
 - IDEs and Editor Plugins for Go
 - Optional Homework: A Tour of Go
 
-## [Chapter Two basic syntax]
+## [Chapter Two basic syntax](./chapter-two.md)
 - Variables and infferred types
 - Functions and return values
 - Pointers
 - Types and Type assertion
-- Structs
+- Structs 
+- encoding (json)
 - Create your first web server
+- Write  a unit and integration test for the web server
