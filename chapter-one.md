@@ -307,13 +307,35 @@ godoc testing
 ```
 
 
-## Editors and integration
-Most main editors have some support for Go
+## IDEs and Editor Plugins for Go
 
-- Visual Studio Code Has a good Go plugin [download](https://code.visualstudio.com)
-- Intellij Also has a good Go plugin [download](https://www.jetbrains.com/idea/)
-- Sublime Text3 Takes a bit of setting up but works quite well [tutorial](https://www.wolfe.id.au/2015/03/05/using-sublime-text-for-go-development/)
-- Atom plugin [download](https://atom.io/packages/go-plus)
+Most main editors have some support for Go. Check the full list of [IDEs and
+Plugins for Go](https://github.com/golang/go/wiki/IDEsAndTextEditorPlugins) on
+the official Go Wiki.
+
+Though many editors support Go, they do not offer the same level of features and
+integrations.
+
+These are things you might look for when considering an editor, from the most
+basic to the more advanced use cases. Keep in mind people tend to have different
+opinions here, so this is just a list to let you know some of what is possible,
+value the ones you care about most:
+
+- Syntax coloring
+- Integration with `gofmt` to automatically format source code (best when always
+  triggered on save)
+- Ability to replace `gofmt` with `goimports` to automatically
+  add/remove/organize imports
+- Go to definition of identifier under cursor
+- Code auto completion
+- Integration with code linters (`go vet`, `golint`, `gometalinter`, ...)
+- Automatic refactors (rename, extract variable/function, ...)
+- Debugger Integration
+- Integration with `go test` to run tests
+- Integration with `godoc` to provide contextual documentation
+- Integration with Go [`guru`](https://docs.google.com/document/d/1_Y9xCEMj5S-7rv2ooHpZNH15JgRT5iM742gJkw5LtmQ/view)
+  (formerly known as Go `oracle`) to answer questions about code
+
 
 ## Optional Homework
 

@@ -9,7 +9,7 @@ Notes and info about getting started with Go.
  - Installing some common tools
  - Create your first program
  - Create the first test for your program
- - Editors and IDEs
+ - IDEs and Editor Plugins for Go
 
 ## [Chapter Two basic syntax]
 - Variables and infferred types
