@@ -173,134 +173,172 @@ find ${GOPATH%%:*}/src/ -type d -maxdepth 2 | less
 
 
 ## Create your first program
-Create the following directory
-```
-  mkdir -p $GOPATH/src/github.com/<your_user>/hello
-  cd $GOPATH/src/github.com/<your_user>/hello
-  vi main.go
-```
-Add the following to main.go
+
+Create a directory in your workspace:
 
 ```
+mkdir -p $GOPATH/src/github.com/<your_user>/hello
+cd $GOPATH/src/github.com/<your_user>/hello
+touch main.go
+```
+
+Open your favorite editor, and add the following to `main.go`:
+
+```go
 package main
-import(
-    "fmt"
-)
 
-func main(){
-    fmt.Println("hello world")
+import "fmt"
+
+func main() {
+	fmt.Println("hello world")
 }
-
-```
-So what have we done here. the package indicates the name of the package we are in and the main function is similar to main for other languages. It is the entrypoint.
-
-functions are defined as func.
-
-We are importing the fmt package from the stdlib and then using it to print to stdout.
-
 ```
 
-go build .
+So what have we done here? The `package` statement indicates the name of the
+package we are in and the `main` function is similar to main for other languages.
+It is the entrypoint of an executable program.
+
+Functions are defined with the `func` keyword.
+
+We are importing the `fmt` package from the stdlib and then using it to print to
+*stdout*.
+
+Now run:
 
 ```
+go build
+```
 
-The go build command will compile the source into a binary and drop it in the current directory.
+The `go build` command will compile the source of the package in the current
+directory and drop a binary also in the current directory.
 
 ```
 ./hello
-
 ```
 
-This should output ``` hello world ```
+This should output `hello world`.
+
+Now, try:
 
 ```
 rm ./hello
-
-go install .
-
+go install
 hello
-
-```
-The go install command installs the binary to the $GOPATH/bin dir which is on your path so you can use the program without the ./
-
-Finally open the main.go file and change the formatting to be terrible...
-
-```
-go fmt .
-
 ```
 
-Open main.go and it will be correctly formatted again.
+The `go install` command installs the binary to the $GOPATH/bin directory. If
+you have added that directory to your PATH, then you can execute the program
+without the `./`.
 
+Finally, open the `main.go` file and change the formatting to be terrible...
+Introduce spurious new lines and spaces, then run:
+
+```
+go fmt
+```
+
+Open `main.go` again and it should be correctly formatted again.
+
+It is highly recommendable to configure your editor to run `gofmt` (or
+`goimports`) on save, so that you don't need to bother about it.
 
 
 ## Create the first test for your program
 
-The convention in Go is to put your tests alongside the code that it tests rather than in a different directory somewhere. This has the advantage of giving a very visible
-way of seeing what has tests and what doesn't. All test files in Go are named _test.go anything named that way will not be added to the final binary.
+The convention in Go is to put unit tests alongside the code that they test
+rather than in a different directory. This has the advantage of giving a very
+visible way of seeing what has tests and what doesn't. All test files are named
+`*_test.go`; anything named that way will not be added to the final binary, but
+will be taken into account by `go test`.
 
+Create a file `main_test.go` and add the following code:
 
-reopen main.go and change it to look like the following :
-
-```
+```go
 package main
-import(
-    "fmt"
+
+import (
+	"testing"
 )
 
-//This is a public function exposed from the package. A exported functions must start with an Uppercase letter.
-// the return type of this function is a string as shown by the definition
-func HelloWorld()string{
-    return "hello world"
+// All test function names should follow the TestAbc pattern and must take an
+// argument of type *testing.T, conventionally named t.
+func TestHelloWorld(t *testing.T) {
+	val := HelloWorld()
+	if val != "hello world" {
+		t.Fail()
+	}
 }
-
-func main(){
-    fmt.Println(HelloWorld())
-}
-
 ```
 
-open main_test.go
+Here we have imported the [testing package](https://golang.org/pkg/testing/) and
+defined a test. The test calls a `HelloWorld` function (to be defined) and check
+that the value returned matches a given value.
 
-```
-  vi main_test.go
-```
-
-Add the following code
-
-```
-pacakge main
-
-import(
-    "testing"
-)
-
-//All test functions accept an argument of a pointer to testing.T
-func Test_HelloWorld(t *testing.T){
-    val := HelloWorld()
-    if (val != "hello world"){
-        t.Fail()
-    }
-}
-
-```
-
-Here we have imported the stdlib [testing package](https://golang.org/pkg/testing/) and defined a test in the standard way that accepts a pointer to a type of t.Testing.
-Then we call our HelloWorld function and check that the value returned matches what we expected.
-
-To run this test run the following command
+To run this test run the following command:
 
 ```
 go test
-
 ```
 
-To get more verbose output add -v
+To get more verbose output, add `-v`:
 
 ```
 go test -v
+```
+
+You should see the test fail. Now let's change `main.go` to make it pass.
+Reopen `main.go` and change it to look like the following:
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+// This is a public/exported function from the package. Exported functions must
+// start with an Uppercase letter. As shown by the signature, the return type of
+// this function is a string and it takes no arguments.
+func HelloWorld() string {
+	return "hello world"
+}
+
+func main() {
+	fmt.Println(HelloWorld())
+}
+```
+
+Run the tests again, and you should see success!
 
 ```
+go test
+```
+
+---
+
+**Pro tip**: having exported names in a `main` package is somewhat useless, for
+you are not supposed to be importing that package from another one. But it is
+fundamental to understand that Go uses the case of the first character in
+identifier names instead of `private`/`public` keywords to determine visibility.
+That is very nice when you are reading code. For instance, it is easy to tell
+that `Println` is a public function defined in the `fmt` package. That package
+may have private definitions, such that you can never do something like
+`fmt.privatefunc()`.
+
+---
+
+If you are coming from another language, you are certainly missing assertion
+methods, what is commonly used in xUnit-style test frameworks. Go's `testing`
+package takes a different approach, notably simpler.
+
+You are given a reference `t` to a `*testing.T` value, that allows you to
+communicate with the test framework. The basic action is to mark the test as
+failed. All the rest of the test code is normal Go code, using the same language
+features you'd use elsewhere, like `if` and `for` constructs, function calls,
+variable declarations and assignments.
+
+We'll see in future chapters how powerful that idea is, as it allows for testing
+more with less boilerplate code, e.g., using table driven tests.
 
 
 ## Reading documentation
