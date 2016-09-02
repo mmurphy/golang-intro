@@ -337,7 +337,8 @@ value the ones you care about most:
   (formerly known as Go `oracle`) to answer questions about code
 
 
-## Optional Homework
+## Optional Homework: A Tour of Go
 
-If you wanted to learn more (I will be going through more next week), now that you have your
-environment setup, I would recommend looking at [A Tour of Go](https://tour.golang.org/welcome/1) that essentially start where we have left off.
+If you want to learn more (we will be going through more next week), now that
+you have your environment setup, take a look at [A Tour of
+Go](https://tour.golang.org/) that essentially start where we have left off.

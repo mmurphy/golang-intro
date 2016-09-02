@@ -10,6 +10,7 @@ Notes and info about getting started with Go.
  - Create your first program
  - Create the first test for your program
  - IDEs and Editor Plugins for Go
+ - Optional Homework: A Tour of Go
 
 ## [Chapter Two basic syntax]
 - Variables and infferred types
