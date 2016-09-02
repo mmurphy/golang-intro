@@ -133,33 +133,44 @@ mkdir -p $GOPATH/bin  # Where executables are installed when you run go install 
 mkdir -p $GOPATH/pkg  # Where package objects are stored, e.g., .a files.
 ```
 
-
-## Installing some common tools
- - golint  ``` go get github.com/golang/lint/golint ```  
- - goimports ``` go get  golang.org/x/tools/cmd/goimports ```
-
-golint looks for common code style. Things such as documenting Exported functions.
-goimports formats your code correctly and also removes any unused imports. It will also try to resolve imports that haven't been added to the imports definition.
-
-What we just did and how go get works. The go get command takes the path to the package and expects a version controlled and accessible path. It then clones this source code into your
-$GOPATH/src directory ready for you to use in import paths as part of your projects.
-
-```
-cd $GOPATH/src/github
-ls
-```
-
 ## Some common Go commands that you should know
 
-1) ``` go build ``` (see below) this will build and compile your code into a binary
+1. `go build` (see below): builds / compiles your code into a binary or library
+2. `go install` (see below): the same as `go build`, plus installs binaries into
+   $GOPATH/bin and libraries to $GOPATH/pkg
+3. `go get`: downloads source code and dependencies, then perform a `go install`
+4. `go test` (see below): compile and run tests in the given package(s)
+5. `go vet`: check code for common coding errors
 
-2) ``` go install ``` (see below) this will do the same as go build except drop it into your $GOPATH/bin dir
 
-3) ``` go vet ``` This will check your code for common coding errors
+## Installing some common tools
 
-4) ``` go test ``` (see below) This will run the test files in the given package
+Use `go get` to download packages and their dependencies, then install them:
 
-5) ``` go get ``` Pulls a dependency into your $GOPATH
+```
+go get github.com/golang/lint/golint \
+       golang.org/x/tools/cmd/goimports
+```
+
+Golint looks for common code style mistakes. Golint makes suggestions for many
+of the mechanically checkable items listed in [Effective
+Go](https://golang.org/doc/effective_go.html) and the [CodeReviewComments wiki
+page](https://golang.org/wiki/CodeReviewComments).
+
+`goimports` formats your code correctly (it's a drop-in replacement for `gofmt`)
+and also removes any unused imports. It will also try to resolve imports that
+haven't been added to the imports definition.
+
+The `go get` command takes the path to the package and expects a version
+controlled and accessible URL. It then clones the source code into your
+$GOPATH/src directory ready for you to use in import paths as part of your
+projects.
+
+```
+# recursively list directories in the first path of GOPATH, with limited depth:
+find ${GOPATH%%:*}/src/ -type d -maxdepth 2 | less
+```
+
 
 ## Create your first program
 Create the following directory
