@@ -51,7 +51,15 @@ or `$HOME/.profile` (or `~/.bashrc`, `~/.bash_profile`, ...):
 ```
 export PATH=$PATH:/usr/local/go/bin
 ```
+### Run in Docker
 
+docker run -it --rm -v $HOME/go:/go:z golang /bin/bash
+
+The official go Docker image has GOPATH=/go so you can just mount in your desired go path there. 
+
+*note :z allows the mount to work correctly with SELINUX.
+
+See [Docker Hub](https://hub.docker.com/_/golang/) for more information
 
 ## Understanding the GOPATH environment variable
 
