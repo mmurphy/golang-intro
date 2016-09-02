@@ -84,7 +84,7 @@ existing source code.
 Make sure to have a line defining your GOPATH in your `~/.bashrc` or equivalent:
 
 ```
-export $GOPATH=$HOME/go
+export GOPATH=$HOME/go
 ```
 
 ---
@@ -239,7 +239,7 @@ go fmt
 
 Open `main.go` again and it should be correctly formatted again.
 
-It is highly recommendable to configure your editor to run `gofmt` (or
+It is highly recommended to configure your editor to run `gofmt` (or
 `goimports`) on save, so that you don't need to bother about it.
 
 
@@ -316,7 +316,7 @@ go test
 
 ---
 
-**Pro tip**: having exported names in a `main` package is somewhat useless, for
+**Pro tip**: having exported names in a `main` package is somewhat useless, since
 you are not supposed to be importing that package from another one. But it is
 fundamental to understand that Go uses the case of the first character in
 identifier names instead of `private`/`public` keywords to determine visibility.
