@@ -291,19 +291,39 @@ go test -v
 
 ```
 
-## Viewing docs about stdlib packages or any package
 
-You can google the package and read the online docs at :
+## Reading documentation
 
-```
+It is easy to access documentation for any package, function, or any other
+exported value in the standard library, or any other package in your workspace.
+
+You can read the online documentation for the latest release at:
 https://golang.org/pkg/
+
+The above includes only the standard library. If you want to read the
+documentation of any publicly accessible package (including also the stdlib),
+check this out: https://godoc.org
+
+GoDoc.org even helps you identifying popular packages, and consulting the docs
+for projects in your own GitHub repository!
+
+Often it is useful to read docs offline. That case is also very well covered.
+You can start a local server very similar to golang.org:
+
+```
+godoc -http=:6060
 ```
 
-You can also use the godoc command any any package. For example run the following command to see the docs for the testing pkg
+Now browse to http://localhost:6060/pkg to find docs for every package in your
+workspace. Check `godoc -h` for more options.
+
+You can also use the `go doc` (note the space) to print documentation in a
+convenient format for command line usage. For example, try out the following
+commands:
 
 ```
-godoc testing
-
+go doc testing
+go doc testing T.Fail
 ```
 
 
