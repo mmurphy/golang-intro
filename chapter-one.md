@@ -116,7 +116,7 @@ compiler where to find the source for a certain package.
 
 An `example.go` file could look like:
 
-```
+```go
 package main
 
 import "github.com/golang/lint/golint"
