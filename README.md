@@ -17,8 +17,8 @@ Notes and info about getting started with Go.
 ## [Chapter Two basic syntax](./chapter-two.md)
 - Variables and infferred types
 - Functions and return values
+- The defer keyword
 - Pointers
-- Types and Type assertion
 - Structs 
 - encoding (json)
 - Create your first web server
