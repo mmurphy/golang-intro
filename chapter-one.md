@@ -286,6 +286,13 @@ To get more verbose output, add `-v`:
 go test -v
 ```
 
+To see the coverage stats run 
+
+```
+go test -cover 
+
+```
+
 You should see the test fail. Now let's change `main.go` to make it pass.
 Reopen `main.go` and change it to look like the following:
 
