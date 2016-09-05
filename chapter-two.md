@@ -1,4 +1,5 @@
 * Note a lot of this is taken from the excellent tour.golang.org
+<<<<<<< HEAD
 * Some information was taken from http://www.golangbootcamp.com/
 
 ## Exported Names
@@ -6,6 +7,8 @@
 In Golang a packages publicly accessible properties all begin with a capital letter. From within a package namespace you can
 refer to private functions and variables but from outside the package, you can only access the things exported from that package.
 Think public and private key word in Java.
+=======
+>>>>>>> e37a23817d406e31c394a8c539f0df8ca16ee6ca
 
 ## Functions
 
@@ -97,6 +100,7 @@ func main() {
 
 ## Variables and infferred types
 
+<<<<<<< HEAD
 
 There are two main types of assignment in Go. 
 1) the ``` var ``` key word and the ```:=``` short assignment.
@@ -195,3 +199,9 @@ func main(){
 ``` go 
 These things allow go to feel quite familar to javascript developers.
 
+=======
+There are two main types of assignment in Go. 
+1) the ``` var ``` key word and the ```:=``` short assignment.
+
+The var keyword can be used both outside function scopes and within. 
+>>>>>>> e37a23817d406e31c394a8c539f0df8ca16ee6ca

@@ -16,11 +16,21 @@ Notes and info about getting started with Go.
 
 ## [Chapter Two basic syntax](./chapter-two.md)
 - Exported Names
+- Variables and infferred types
 - Functions and return values
 - Variables and infferred types
 - The defer keyword
 - Pointers
 - Structs 
 - encoding (json)
-- Create your first web server
+- Create your first REST API server
 - Write  a unit and integration test for the web server
+
+## [Chapter Three Types and Collections]
+- Basic types 
+- More on structs and initialisation 
+- Type conversion
+- Type assertion
+- Maps
+- Slices 
+- Adding some new endpoints to our api
