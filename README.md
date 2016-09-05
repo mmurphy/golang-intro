@@ -15,8 +15,9 @@ Notes and info about getting started with Go.
 - Optional Homework: A Tour of Go
 
 ## [Chapter Two basic syntax](./chapter-two.md)
-- Variables and infferred types
+- Exported Names
 - Functions and return values
+- Variables and infferred types
 - The defer keyword
 - Pointers
 - Structs 
