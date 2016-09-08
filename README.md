@@ -14,10 +14,23 @@ Notes and info about getting started with Go.
 - IDEs and Editor Plugins for Go
 - Optional Homework: A Tour of Go
 
-## [Chapter Two basic syntax]
+## [Chapter Two basic syntax](./chapter-two.md)
+- Exported Names
 - Variables and infferred types
 - Functions and return values
-- Pointers
-- Types and Type assertion
-- Structs
-- Create your first web server
+- Variables and infferred types
+- The defer keyword
+- Structs 
+- encoding (json)
+- Create your first REST API server
+- Write  an integration test for the web server
+
+## [Chapter Three Types and Collections]
+- Basic types 
+- More on structs and initialisation
+- Pointers 
+- Type conversion
+- Type assertion
+- Maps
+- Slices 
+- Adding some new endpoints to our api
