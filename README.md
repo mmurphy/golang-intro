@@ -23,7 +23,7 @@ Notes and info about getting started with Go.
 - Structs 
 - encoding (json)
 - Create your first REST API server
-- Write  a unit and integration test for the web server
+- Write  an integration test for the web server
 
 ## [Chapter Three Types and Collections]
 - Basic types 
