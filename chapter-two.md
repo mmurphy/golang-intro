@@ -431,7 +431,7 @@ import (
 )
 
 func TestEcho(t *testing.T) {
-	server := httptest.NewServer(router())
+	server := httptest.NewServer(router()) //starts a real server on a free port
 	defer server.Close() //notice we use defer here to ensure our server is closed
 	res, err := http.NewRequest("POST", server.URL+"/api/echo", strings.NewReader(`{"message":"test"}`))
 	if err != nil {
@@ -463,5 +463,7 @@ go test -cover -v
 ```
 
 Notice we added the -cover flag, this will print the coverage stats for the package.
+
+Also it is worth noticing that we still haven't used any dependencies yet. We will eventually need them, but it good to show what you can achieve just with the stdlib
 
 
