@@ -20,7 +20,6 @@ Notes and info about getting started with Go.
 - Functions and return values
 - Variables and infferred types
 - The defer keyword
-- Pointers
 - Structs 
 - encoding (json)
 - Create your first REST API server
@@ -28,7 +27,8 @@ Notes and info about getting started with Go.
 
 ## [Chapter Three Types and Collections]
 - Basic types 
-- More on structs and initialisation 
+- More on structs and initialisation
+- Pointers 
 - Type conversion
 - Type assertion
 - Maps
