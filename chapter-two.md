@@ -7,6 +7,15 @@
 - Introduce how Go does json encoding
 - Show how to write a basic web server and test it.
 
+
+The examples can be run by adding the code to a main.go and running:
+
+```bash
+
+go run main.go 
+
+```
+
 ## Exported Names
 
 In Golang a packages' publicly accessible properties all begin with a capital letter. From within a package namespace you can
@@ -141,14 +150,6 @@ func main (){
 }
 
 ``` 
-
-You can run this by using the handy ``` go run ``` command
-
-```go
-
-go run main.go 
-
-```
 
 In the above example we set the type, but if an initializer is present, the type can be omitted, the variable will take the type of the initializer (inferred typing).
 The below outlines the different ways you can use the var keyword:
