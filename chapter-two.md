@@ -5,13 +5,27 @@
 - Introduce some basic building blocks to allow the exploration of creating actual programs.
 - Introduce how Go deals with data structures.
 - Introduce how Go does json encoding
-- Show how to run a basic web server and test it.
+- Show how to write a basic web server and test it.
 
 ## Exported Names
 
-In Golang a packages publicly accessible properties all begin with a capital letter. From within a package namespace you can
-refer to private functions and variables but from outside the package, you can only access the things exported from that package.
+In Golang a packages' publicly accessible properties all begin with a capital letter. From within a package namespace you can
+refer to private functions and variables (starting with lower case) but from outside the package, you can only access the things exported from that package.
 Think public and private key word in Java.
+
+```go 
+//exported 
+
+func MyPublicFunc(){
+
+}
+
+//private 
+func myPrivateFunc(){
+
+}
+
+```
 
 ## Functions
 
@@ -36,10 +50,10 @@ func add(x, y int) int {
 }
 ```
 
-A function can return any number of results to do this it adds braces around the return types:
+A function can return any number of results to do this you add braces around the return types:
 
 ```go 
-func xandy(x,y int)(int,int){
+func xandy(x,y int)(int,int){ //returns two ints
     return x,y
 }
 
@@ -67,7 +81,8 @@ func swap(x, y string) (string, string) {
 
 func main() {
     //notice the assignment here. This is called a short assignment and it inferrs the type. More on this later.
-	a, b := swap("hello", "world")
+	//also notice we have 2 variables on the left hand side
+	a, b := swap("hello", "world") 
 	fmt.Println(a, b)
 }
 
@@ -76,7 +91,6 @@ func main() {
 Just as in javascript, functions have closure and can be passed as values:
 
 ```go 
-
 package main
 
 import (
@@ -92,15 +106,15 @@ func main() {
 	hypot := func(x, y float64) float64 {
 		return math.Sqrt(x*x + y*y)
 	}
-	fmt.Println(hypot(5, 12))
-
-	fmt.Println(compute(hypot))
-	fmt.Println(compute(math.Pow))
+	fmt.Println(hypot(5, 12)) //call hypot directly
+	fmt.Println(compute(hypot)) //pass hypot as value to compute
+	fmt.Println(compute(math.Pow)) //pass math.Pow as a value
+	fmt.Println(func(x,y float64)float64{
+		return math.Sqrt(x*x + y*y)
+	}) //define a function inline
 }
 
 ```
-
-
 ## Variables and infferred types
 
 There are two main types of assignment in Go. 
@@ -207,7 +221,7 @@ These things allow go to feel quite familar to javascript developers.
 
 The defer keyword is a useful piece of utility provided by the golang language. It allows you to defer a function call until the current function has completed
 this can be extremely useful for doing things like closing files, closing sockets etc. Instead of closing files etc on err and on success instead you can defer 
-its close function and be sure your function will clean up after itself. 
+its close function and be sure your function will clean up after itself. (we will be using this later) 
 
 ```go 
 package main 
@@ -252,7 +266,7 @@ func main (){
 ```
 
 We will go more into pointers and values in Golang in a future lesson. As with most languages, pointers are much cheaper and means anything recieving that
-pointer can change attributes of whatever is stored in the pointers address where as with a value your function will get a copy of the value. Meaning it can change
+pointer can change attributes of whatever is stored in the pointer's address. With a value your function will get a copy of the value. Meaning it can change
 the attributes of that value within the scope of the function but not outside of that scope.  
 
 
@@ -260,8 +274,7 @@ the attributes of that value within the scope of the function but not outside of
 
 Golang has several encoding packages built into the stdlib. Today we will focus on the json encoding package. The package details can be seen here:
 [json](https://golang.org/pkg/encoding/json/)
-There are not alot of methods in this package. The main ones we are interested in are Decode and Encode. Some code here may be a little confusing but try not to be put off
-as it will become clearer over time.
+There are not alot of methods in this package. The main ones we are interested in are Decode and Encode. Some code here may be a little confusing but try not to be put off as it will become clearer.
 
 ```go 
 package main
@@ -274,20 +287,16 @@ import (
         "strings" // import the strings package
 )
 
-type MyData struct {
+type MyData struct { //define a data structure
         Message string
 }
 
-var jsonMyData = `{"Message":"hello"}`
+var jsonMyData = `{"Message":"hello"}` //define a string literal
 
 //take a value of MyData encode it print it and return an error if there is a problem
 func encodeAndPrintMyData(data MyData) error {
         enc := json.NewEncoder(os.Stdout) //NewEncoder takes a writer (we will get into this in the future) os.Stdout is a writer for stdout
-        err := enc.Encode(data) //enc.Encode returns an error if there was a problem so we could do return enc.Encode()
-        if err != nil {
-                return err
-        }
-        return nil
+        return enc.Encode(data) //enc.Encode returns an error if there was a problem.
 }
 
 //take a json string and decode it into a MyData and return the pointer return an error if there is a problem
@@ -423,7 +432,7 @@ import (
 func TestEcho(t *testing.T) {
 	server := httptest.NewServer(router())
 	defer server.Close() //notice we use defer here to ensure our server is closed
-	res, err := http.NewRequest("POST", server.URL+"/echo", strings.NewReader(`{"message":"test"}`))
+	res, err := http.NewRequest("POST", server.URL+"/api/echo", strings.NewReader(`{"message":"test"}`))
 	if err != nil {
 		log.Fatal(err)
 	}
