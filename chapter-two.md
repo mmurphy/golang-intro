@@ -267,7 +267,7 @@ func main (){
 ```
 
 We will go more into pointers and values in Golang in a future lesson. As with most languages, pointers are much cheaper and means anything recieving that
-pointer can change attributes of whatever is stored in the pointer's address. With a value your function will get a copy of the value. Meaning it can change
+pointer can change attributes of whatever is stored in the pointer's address. With a value your function will get a copy of the value so it can change
 the attributes of that value within the scope of the function but not outside of that scope.  
 
 
