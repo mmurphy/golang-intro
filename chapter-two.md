@@ -110,7 +110,7 @@ func main() {
 	fmt.Println(compute(hypot)) //pass hypot as value to compute
 	fmt.Println(compute(math.Pow)) //pass math.Pow as a value
 	fmt.Println(func(x,y float64)float64{
-		return math.Sqrt(x*x + y*y)
+		return hypot(x,y)
 	}) //define a function inline
 }
 
