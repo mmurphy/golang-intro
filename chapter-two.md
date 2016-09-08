@@ -464,6 +464,10 @@ go test -cover -v
 
 Notice we added the -cover flag, this will print the coverage stats for the package.
 
-Also it is worth noticing that we still haven't used any dependencies yet. We will eventually need them, but it good to show what you can achieve just with the stdlib
+Also it is worth noticing that we still haven't used any dependencies yet. We will eventually need them, but it good to show what you can achieve just with the stdlib.
+
+### Finally
+
+What would people like to build as part of this? Would working on a command line client that maybe does a login against RHMAP be good or would you prefer to learn more about building rest api servers?
 
 
