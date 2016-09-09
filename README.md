@@ -27,10 +27,11 @@ Notes and info about getting started with Go.
 
 ## [Chapter Three Types and Collections]
 - Basic types 
-- More on structs and initialisation
-- Pointers 
+- More on structs (adding methods to structs)
+- Pointers and Values
 - Type conversion
 - Type assertion
 - Maps
 - Slices 
+- Error handling
 - Adding some new endpoints to our api
